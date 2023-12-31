@@ -1,7 +1,7 @@
-function createSetTimeOut() {
+export default function createSetTimeOut() {
 
-    let timerId = 0;
-    let timerMap = {};
+    var timerId = 1;
+    var timerMap = {};
     
     function mySetTimeout(callback, delay, ...args) {
         let id = timerId++;
