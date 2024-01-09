@@ -1,11 +1,12 @@
-Array.prototype.map = function (callbackFn) {
+Array.prototype.map = function (callBack) {
+
     const output = [];
 
-    this.forEach((element, index) => {
-        output.push(callbackFn(element, index, this));
-    })
+    for (let i = 0; i < this.length; i++) {
+        output.push(callBack(this[i], i));
+    }
 
     return output;
 }
 
-console.log([1,2,3].map((e) => e*10));
+console.log([1, 2, 3].map((e) => e * 10));

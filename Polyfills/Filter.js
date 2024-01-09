@@ -1,13 +1,13 @@
-Array.prototype.filter = function(callbackFn) {
+Array.prototype.filter = function (callBack) {
     const output = [];
 
-    this.forEach((element, index) => {
-        if(callbackFn(element, index, this)) {
-            output.push(element);
+    for (let i = 0; i < this.length; i++) {
+        if (callBack(this[i], i)) {
+            output.push(this[i]);
         }
-    })
+    }
 
     return output;
 }
 
-console.log([1,2,3,4,5,6].filter((e) => e % 2 === 0));
+console.log([1, 2, 3, 4, 5, 6].filter((e) => e % 2 === 0));
