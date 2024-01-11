@@ -8,7 +8,7 @@ const once = function(callBack) {
     return function(...args) {
         if(!isExecuted) {
             isExecuted = true;
-            const result = callBack.call(this, ...args);
+            const result = callBack(...args);
             console.log(result);
         }
         return null;
