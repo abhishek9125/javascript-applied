@@ -1,13 +1,25 @@
-const flattenArray = (arr) => {
+const output = []
 
-    return arr.reduce((prevValue, currentValue) => {
-        if(Array.isArray(currentValue)) {
-            prevValue = prevValue.concat(flattenArray(currentValue));
+const flattenArray = (arr) => {
+    
+    arr.forEach(item => {
+        if(Array.isArray(item)) {
+            flattenArray(item);
         } else {
-            prevValue.push(currentValue);
+            output.push(item);
         }
-        return prevValue;
-    }, [])
+    })
+    return output;
+    // return arr.reduce((prevValue, currentValue) => {
+        
+    //     if(Array.isArray(currentValue)) {
+    //         prevValue = prevValue.concat(flattenArray(currentValue));
+    //     } else {
+    //         prevValue.push(currentValue);
+    //     }
+        
+    //     return prevValue;
+    // }, [])
 }
 
 console.log(flattenArray([[[1, 1.1], 2, 3], [4, 5]]));
