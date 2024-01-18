@@ -15,10 +15,11 @@ const observer = new IntersectionObserver((entries) => {
 const lastCardObserver = new IntersectionObserver((entries) => {
     const lastCard = entries[0];
     if(!lastCard.isIntersecting) {
-        loadMoreCards();
-        lastCardObserver.unobserve(lastCard.target);
-        lastCardObserver.observe(document.querySelector(".card:last-child"))
+        return;
     }
+    loadMoreCards();
+    lastCardObserver.unobserve(lastCard.target);
+    lastCardObserver.observe(document.querySelector(".card:last-child"))
 })
 
 lastCardObserver.observe(document.querySelector(".card:last-child"))

@@ -1,6 +1,8 @@
 
 function curry(callBack) {
     return function curriedFunc(...args) {
+        console.log(`callBack.length`, callBack.length)
+        console.log(`args.length`, args.length)
         if(callBack.length <= args.length) {
             return callBack(...args);
         } else {
